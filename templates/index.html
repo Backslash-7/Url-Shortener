@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Url Shorter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+</head>
+
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto Slab', serif;
+        background-color: #e0c171;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 600px;
+        background: rgb(244, 250, 229);
+        border-radius: 10px;
+        padding-bottom: 40px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .center h1 {
+        text-align: center;
+        padding: 10px;
+        border-bottom: 1px solid black;
+    }
+
+    .center form {
+        padding: 0 40px;
+        box-sizing: border-box;
+    }
+
+    form .old-url {
+        position: relative;
+        border-bottom: 2px solid #e0c171;
+        margin: 30px 0;
+    }
+
+    .old-url input {
+        font-family: 'Roboto Slab', serif;
+        width: 100%;
+        padding: 0 5px;
+        height: 40px;
+        font-size: 18px;
+        border: none;
+        background: none;
+        outline: none;
+    }
+
+    .new-url p{
+        font-family: 'Roboto Slab', serif;
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        height: 40px;
+        font-size: 18px;
+        border-radius: 10px;
+        background-color: #E9E9ED ;
+        outline: none;
+    }
+
+    input[type="submit"]{
+        width: 50%;
+        height: 50px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border: 1px solid #e0c171;
+        background-color: #e0c171;
+        border-radius: 25px;
+        font-size: 20px;
+        font-family: 'Roboto Slab', serif;
+        cursor: pointer;
+        outline: none;
+    }
+    input[type="submit"]:hover{
+        color: #000000;
+        transition: 0.5s;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    }
+    
+</style>
+
+<body>
+    <div class="center">
+        <h1>Url Shortner</h1>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="old-url">
+                <input type="text" name="Your_url" id="" placeholder="Enter your URL">
+            </div>
+            <div class="submit">
+                <input type="submit" name="submit" id="" value="Generate URL">
+            </div>
+            <div class="new-url">
+                <p> Your Url :  {{ Your_url }}</p>
+            </div>
+            <div class="new-url">
+                <p>Short Url : {{ short_url }}</p>
+            </div>
+        </form>
+    </div>
+</body>
+
+
+</html>
